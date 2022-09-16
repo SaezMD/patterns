@@ -1,19 +1,33 @@
 #Stadistics form a sentence
 
+# define vowels
+vowels = "AaEeIiOoUu"
+
 # sentence
 text = 'La cura para todo es siempre agua salada: el sudor, las lágrimas o el mar.'
 
 # separator == space
-result = len(text.split())
+totalWords = len(text.split())
 
 # count letters
 lenWords = list(map(len, text.split()))
 print(lenWords)
-max_value = 0
+maxValue = 0
+maxLocation = None
 
-for num in lenWords:
-    if (max_value is None or num > max_value):
-        max_value = num
-        
-print("Total: " + str(result) + " words.")
-print("Longest word has: " + str(max_value) + " letters.")
+for idx, num in enumerate(lenWords):
+    if (maxValue is None or num > maxValue):
+        maxValue = num
+        maxLocation = idx
+
+# Count vowels
+countVowelsInWords = list(map((each for each in text if each in vowels), text.split()))
+print(countVowelsInWords)
+
+vowels = list(each for each in countVowelsInWords if each in vowels)
+print(vowels)
+
+print("Total: " + str(totalWords) + " words.")
+print("Longest word has: " + str(maxValue) + " letters in position: "+ str(maxLocation) +".")
+print("Total: " + str(len(vowels)) + " vowels.")
+
