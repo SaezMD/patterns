@@ -21,13 +21,19 @@ for idx, num in enumerate(lenWords):
         maxLocation = idx
 
 # Count vowels
-countVowelsInWords = list(map((each for each in text if each in vowels), text.split()))
-print(countVowelsInWords)
+countVowelsInWords = list(text.split())
+#print(countVowelsInWords)
 
-vowels = list(each for each in countVowelsInWords if each in vowels)
-print(vowels)
+maxVowels = 0
+for word in countVowelsInWords:
+    count = 0 
+    for char in word:
+        if char in vowels:
+            count += 1
+    if (maxVowels is None or count > maxVowels):
+        maxVowels = count
+
 
 print("Total: " + str(totalWords) + " words.")
 print("Longest word has: " + str(maxValue) + " letters in position: "+ str(maxLocation) +".")
-print("Total: " + str(len(vowels)) + " vowels.")
-
+print("Max vowels in a single word: " + str(maxVowels))
