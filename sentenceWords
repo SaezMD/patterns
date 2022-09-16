@@ -1,0 +1,19 @@
+#Stadistics form a sentence
+
+# sentence
+text = 'La cura para todo es siempre agua salada: el sudor, las lágrimas o el mar.'
+
+# separator == space
+result = len(text.split())
+
+# count letters
+lenWords = list(map(len, text.split()))
+print(lenWords)
+max_value = 0
+
+for num in lenWords:
+    if (max_value is None or num > max_value):
+        max_value = num
+
+print("Total: " + str(result) + " words.")
+print("Longest word has: " + str(max_value) + " letters.")
