@@ -1,7 +1,23 @@
 #Puzzle 02
 
 #Square
-
 for i in range(0, 5):
     
     print("#" * 5)
+
+print("")
+
+#Hollow Square
+size = 5
+for i in range(size):
+    for j in range(size):
+        
+        # print # only in first and last position in other rows
+        if i == 0 or i == size - 1 or j == 0 or j == size - 1:
+            print('#', end='')
+        else:
+            print(' ', end='')
+    print()
+
+print("")
+
